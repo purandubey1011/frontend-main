@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ApplyPopup from "./ApplyPopup";
 
+// No changes to these variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -13,12 +14,12 @@ const containerVariants = {
 };
 
 const logoVariants = {
-  hidden: { y: -250, opacity: 0, rotate: -15 },
+  hidden: { y: -200, opacity: 0, rotate: -15 },
   visible: {
     y: 0,
     opacity: 1,
     rotate: 0,
-    transition: { stiffness: 100, duration: 0.8 },
+    transition: {  stiffness: 100, duration: 0.8 },
   },
 };
 
@@ -45,12 +46,25 @@ const imageVariants = {
   },
 };
 
-const ctaVariants = {
-  hidden: { y: 30, opacity: 0 },
+// NEW: A dedicated container for the CTA to manage its own children
+const ctaContainerVariants = {
+  hidden: { opacity: 0 }, // It will fade in as a whole
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Then, it will stagger its own children
+    },
+  },
+};
+
+
+// UPDATED: The individual CTA items now use a smoother 'spring' animation
+const ctaItemVariants = {
+  hidden: {  opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { ease: "easeOut", duration: 0.6 },
+    transition: { type: "spring", stiffness: 120, damping: 14 }, // Smoother spring transition
   },
 };
 
@@ -65,10 +79,7 @@ const Hero = () => {
       className="bg-white flex flex-col items-center justify-center px-4 py-0"
     >
       <div className="w-full max-w-[90vw] text-left">
-        <motion.h2
-          variants={logoVariants}
-          className="hero-logo text-lg sm:text-xl font-bold text-purple-600"
-        >
+        <motion.h2 variants={logoVariants} className="text-lg sm:text-xl font-bold text-purple-600">
           <img
             className="h-20 sm:h-28"
             src="https://ik.imagekit.io/b9tt0xvd7/unfyer/Untitled%20design%20(20).png?updatedAt=1755160725166"
@@ -105,16 +116,20 @@ const Hero = () => {
           </motion.p>
         </div>
 
-        <motion.div className="mt-5 sm:mt-6">
+        {/* UPDATED CTA BLOCK */}
+        <motion.div
+          variants={ctaContainerVariants}
+          className="mt-5 sm:mt-6"
+        >
           <motion.button
-            variants={ctaVariants}
+            variants={ctaItemVariants} // Use the new item variant
             onClick={() => setPopupOpen(true)}
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-5 sm:px-6 rounded-full text-xs sm:text-base transition duration-300"
           >
             Apply for Access
           </motion.button>
           <motion.p
-            variants={ctaVariants}
+            variants={ctaItemVariants} // Use the new item variant
             className="text-gray-400 text-[10px] sm:text-xs mt-2"
           >
             Only for creators with 5,000+ followers
