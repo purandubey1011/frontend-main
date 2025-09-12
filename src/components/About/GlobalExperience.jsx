@@ -57,10 +57,10 @@ const GlobalExperience = () => {
           <div className="flex items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
-              <h3 className="font-semibold text-green-900 text-sm sm:text-base">
+              <h3 className="font-semibold text-green-900 text-xs sm:text-base">
                 Global Experience That Inspires
               </h3>
-              <p className="text-gray-700 text-xs sm:text-sm mt-1">
+              <p className="text-gray-700 text-[2.3vw] sm:text-sm mt-1">
                 Over 25 years in people management and development across UK,
                 Europe, India.
               </p>
@@ -69,14 +69,14 @@ const GlobalExperience = () => {
         </div>
 
         {/* Popup 2 */}
-        <div className="ge-popup absolute top-[25%] right-[0%] md:right-[20%] bg-lime-200 text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-64">
+        <div className="ge-popup absolute top-[32%] right-[5%] md:right-[20%] bg-lime-200 text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-64">
           <div className="flex items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
-              <h3 className="font-semibold text-green-900 text-sm sm:text-base">
+              <h3 className="font-semibold text-green-900 text-xs sm:text-base">
                 A Journey Across Borders
               </h3>
-              <p className="text-gray-700 text-xs sm:text-sm mt-1">
+              <p className="text-gray-700 text-[2.3vw] sm:text-sm mt-1">
                 From the UK to Europe to India — decades of people management
                 and leadership excellence.
               </p>
@@ -89,10 +89,10 @@ const GlobalExperience = () => {
           <div className="flex items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
-              <h3 className="font-semibold text-green-900 text-sm sm:text-base">
+              <h3 className="font-semibold text-green-900 text-xs sm:text-base">
                 Recognized Leadership, Global Impact
               </h3>
-              <p className="text-gray-700 text-xs sm:text-sm mt-1">
+              <p className="text-gray-700 text-[2.3vw] sm:text-sm mt-1">
                 Award-winning expertise rooted in life sciences, mental
                 physics, and human development.
               </p>
