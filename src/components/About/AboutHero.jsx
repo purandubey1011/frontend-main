@@ -60,7 +60,7 @@ const AboutHero = () => {
 
         {/* Main heading */}
         <div className="flex justify-center md:justify-start">
-          <h1 className="ah-heading text-5xl  md:text-6xl font-bold leading-snug text-white max-w-lg sm:max-w-2xl md:max-w-5xl text-left">
+          <h1 className="ah-heading text-4xl  md:text-6xl font-bold leading-snug text-white max-w-lg sm:max-w-2xl md:max-w-5xl text-left">
             JaGo means to awaken.{" "}
             <span className="text-gray-400 font-semibold">
               To rise above confusion, to step into purpose, to live with
