@@ -1,0 +1,22 @@
+import React from 'react'
+import AboutHero from './AboutHero.jsx'
+import OurPhilosophy from './OurPhilosophy.jsx'
+import GlobalExperience from './GlobalExperience.jsx'
+import Credentials from './Credentials.jsx'
+import OurMission from './Ourmisson.jsx'
+import Testimonials from '../Home/Testimonials.jsx'
+
+const About = () => {
+  return (
+    <div className='w-full h-full overflow-x-hidden'>
+      <AboutHero/>
+      <OurPhilosophy/>
+      <GlobalExperience/>
+      <Credentials/>
+      <OurMission/>
+      <Testimonials/>
+    </div>
+  )
+}
+
+export default About

@@ -1,23 +1,21 @@
 import Hero from './Hero'
-import BestInfluencer from './BestInfluencer'
-import Howwehelp from './Howwehelp'
-import Howitworks from './Howitworks'
-import Testimonials from './Testimonials'
-import Faq from './Faq'
-import Calltoaction from './Calltoaction'
-import Footer from './Footer'
+import AboutJago from './AboutJago'
+import SolutionOffer from './SolutionOffer'
+import WhoWeHelp from './WhoWeHelp.jsx'
+import NotSure from './NotSure.jsx'
+import NextChapter from './NextChapter.jsx'
+import Testimonials from './Testimonials.jsx'
 
 const Home = () => {
   return (
     <div className='overflow-x-hidden'>
       <Hero />
-      <BestInfluencer />
-      <Howwehelp />
-      <Howitworks />
-      <Testimonials />
-      <Faq />
-      <Calltoaction/>
-      <Footer/>
+      <AboutJago />
+      <SolutionOffer />
+      <WhoWeHelp />
+      <NotSure />
+      <NextChapter />
+      <Testimonials/>
     </div>
   )
 }

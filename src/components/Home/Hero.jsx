@@ -1,155 +1,93 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import ApplyPopup from "./ApplyPopup";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Navbar from "../Navbar";
 
-// No changes to these variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const logoVariants = {
-  hidden: { y: -200, opacity: 0, rotate: -15 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    rotate: 0,
-    transition: {  stiffness: 100, duration: 0.8 },
-  },
-};
-
-const textRevealVariants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: { ease: "easeOut", duration: 0.8 },
-  },
-};
-
-const imageVariants = {
-  hidden: {
-    clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-    scale: 1.1,
-    filter: "brightness(0.6)",
-  },
-  visible: {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    scale: 1,
-    filter: "brightness(0.75)",
-    transition: { duration: 1.3, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-// NEW: A dedicated container for the CTA to manage its own children
-const ctaContainerVariants = {
-  hidden: { opacity: 0 }, // It will fade in as a whole
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // Then, it will stagger its own children
-    },
-  },
-};
-
-
-// UPDATED: The individual CTA items now use a smoother 'spring' animation
-const ctaItemVariants = {
-  hidden: {  opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 120, damping: 14 }, // Smoother spring transition
-  },
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  const [popupOpen, setPopupOpen] = useState(false);
+  const heroRef = useRef(null);
+
+ useEffect(() => {
+  const ctx = gsap.context(() => {
+    // Button ko initially hide karke rakho
+    gsap.set(".hero-btn", { autoAlpha: 0, scale: 0.9 });
+
+    const tl = gsap.timeline();
+
+    tl.from(".hero-title", {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    })
+      .from(
+        ".hero-subtitle",
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      )
+      .to(
+        ".hero-btn",
+        {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.4,
+          ease: "back.out(1.7)",
+        },
+        "-=0.7"
+      );
+  }, heroRef);
+
+  return () => ctx.revert();
+}, []);
+
+
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="bg-white flex flex-col items-center justify-center px-4 py-0"
-    >
-      <div className="w-full max-w-[90vw] text-left">
-        <motion.h2 variants={logoVariants} className="text-lg sm:text-xl font-bold text-purple-600">
-          <img
-            className="h-20 sm:h-28"
-            src="https://ik.imagekit.io/b9tt0xvd7/unfyer/Untitled%20design%20(20).png?updatedAt=1755160725166"
-            alt="Logo"
-          />
-        </motion.h2>
+    <div ref={heroRef} className="relative w-full h-screen overflow-hidden">
+      {/* Background Video */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/jogo-wen2.mp4?updatedAt=1757401310670"
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
+
+      {/* Dark Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+
+      {/* Navbar */}
+      <Navbar/>
+
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-4 sm:px-6">
+        <h1 className="hero-title text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-snug sm:leading-tight">
+          Clarity. Purpose. <br />
+          <span className="italic font-serif">Peace of Mind</span> <br />
+          Your Journey Starts Here.
+        </h1>
+
+        <p className="hero-subtitle mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-xl sm:max-w-2xl leading-relaxed">
+          Confidential life coaching and wellbeing solutions to help{" "}
+          <span className="hidden md:inline">
+            <br />
+          </span>{" "}
+          you find direction, balance, and growth
+        </p>
+
+        <button className="hero-btn mt-6 sm:mt-8 px-5 sm:px-6 py-2.5 sm:py-3 bg-yellow-300 hover:bg-yellow-400 text-black font-medium rounded-full shadow-md transition text-sm sm:text-base">
+          Book a Free 15–Minute Call
+        </button>
       </div>
-
-      <div className="text-center mt-6 sm:mt-8 max-w-[90vw]">
-        <motion.h1 className="text-2xl sm:text-6xl font-bold leading-snug sm:leading-tight">
-          <div className="overflow-hidden py-1">
-            <motion.span variants={textRevealVariants} className="block">
-              Turn Your Audience Into Income
-            </motion.span>
-          </div>
-          <div className="overflow-hidden py-1">
-            <motion.span variants={textRevealVariants} className="block">
-              Without <span className="text-purple-600">Brand Deals</span>
-            </motion.span>
-          </div>
-        </motion.h1>
-
-        <div className="overflow-hidden mt-3 sm:mt-4">
-          <motion.p
-            variants={textRevealVariants}
-            className="text-gray-600 text-xs sm:text-lg leading-relaxed sm:leading-3.5"
-          >
-            Unfyer lets premium creators monetize fan love via secure calls and
-            chats — no{" "}
-            <span className="hidden sm:block">
-              <br />
-            </span>
-            brand, no manager, no middleman.
-          </motion.p>
-        </div>
-
-        {/* UPDATED CTA BLOCK */}
-        <motion.div
-          variants={ctaContainerVariants}
-          className="mt-5 sm:mt-6"
-        >
-          <motion.button
-            variants={ctaItemVariants} // Use the new item variant
-            onClick={() => setPopupOpen(true)}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-5 sm:px-6 rounded-full text-xs sm:text-base transition duration-300"
-          >
-            Apply for Access
-          </motion.button>
-          <motion.p
-            variants={ctaItemVariants} // Use the new item variant
-            className="text-gray-400 text-[10px] sm:text-xs mt-2"
-          >
-            Only for creators with 5,000+ followers
-          </motion.p>
-        </motion.div>
-      </div>
-
-      <motion.div
-        variants={imageVariants}
-        className="mt-8 sm:mt-12 w-full max-w-[90vw] h-[40vh] sm:h-[80vh] bg-cover px-2 sm:px-4 overflow-hidden rounded-lg sm:rounded-xl brightness-75"
-      >
-        <img
-          src="https://ik.imagekit.io/b9tt0xvd7/unfyer/herobg.jpg?updatedAt=1754540692859"
-          alt="Hero"
-          className="w-full h-full object-cover rounded-lg sm:rounded-xl"
-        />
-      </motion.div>
-
-      {popupOpen && <ApplyPopup onClose={() => setPopupOpen(false)} />}
-    </motion.div>
+    </div>
   );
 };
 

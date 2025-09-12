@@ -1,173 +1,136 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
-  const componentRef = useRef(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: componentRef.current,
+          trigger: sectionRef.current,
           start: "top 80%",
-          end: "bottom 80%",
-          toggleActions: "play none none reverse",
-          scrub: true,
         },
+        defaults: { ease: "linear" }, // smooth linear
       });
 
-      tl.from(".testimonial-heading", {
-        y: 40,
+      tl.from(".ts-heading", {
         opacity: 0,
-        duration: 0.6,
-        ease: "power3.out",
+        y: -20,
+        duration: 0.5,
       })
         .from(
-          ".testimonial-card",
+          ".ts-img",
           {
-            y: 50,
             opacity: 0,
-            duration: 0.2,
-            ease: "power3.out",
+            y: 30,
+            duration: 0.5,
           },
-          "-=0.4"
+          "-=0.2"
         )
         .from(
-          ".testimonial-image",
-          {
-            x: -50,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out",
-          },
-          "-=0.4"
+          ".ts-name",
+          { opacity: 0, y: 15, duration: 0.4 },
+          "-=0.3"
         )
         .from(
-          ".testimonial-text",
-          {
-            x: 50,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out",
-          },
-          "<"
+          ".ts-text",
+          { opacity: 0, y: 15, duration: 0.4 },
+          "-=0.3"
         )
-        .from(
-          ".testimonial-arrow",
-          {
-            opacity: 0,
-            y: 20,
-            stagger: 0.2,
-            duration: 0.4,
-          },
-          "-=0.4"
-        )
-        .from(
-          ".testimonial-dot",
-          {
-            opacity: 0,
-            scale: 0.5,
-            stagger: 0.1,
-            duration: 0.3,
-          },
-          "<"
-        );
-    }, componentRef);
+        .fromTo(
+  [".ts-thumb", ".ts-btn"],
+  { autoAlpha: 0, y: 15 },
+  { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05 },
+  "-=0.2"
+);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
     <div
-      ref={componentRef}
-      className="bg-gradient-to-r from-[#A15CFF] to-[#A15CFF]/80 rounded-3xl px-4 md:px-12 py-12 md:py-10 text-white max-w-[90vw] mx-auto relative overflow-hidden"
+      ref={sectionRef}
+      className="relative w-full bg-white py-16 px-4 md:py-20 md:px-20 overflow-hidden"
     >
-      <h2 className="testimonial-heading text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-12">
-        Creator{" "}
-        <span className="border-white border-2 px-2 rounded-md font-bold">
-          Testimonials
-        </span>
-      </h2>
+      {/* Watermark Heading */}
+      <h1
+        className="ts-heading absolute top-4 left-4 md:top-8 md:left-20 text-[2.5rem] md:text-[7rem] font-bold text-transparent leading-none select-none z-0"
+        style={{ WebkitTextStroke: "1px rgba(0,0,0,0.15)" }}
+      >
+        Testimonials
+      </h1>
 
-      <div className="testimonial-card relative flex flex-col md:flex-row items-center justify-center bg-white rounded-xl overflow-hidden shadow-md max-w-5xl mx-auto">
-        <div className="testimonial-image relative w-full md:w-1/2 h-[220px] sm:h-[250px] md:h-[350px]">
-          <img
-            src="https://images.unsplash.com/photo-1716703742154-8a90c9563eed?q=80&w=1170&auto=format&fit=crop"
-            alt="Video thumbnail"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full bg-white shadow-lg flex items-center justify-center cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-6 md:w-6 text-[#A15CFF]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
+      <div className="relative mt-16 md:mt-20">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12">
+          {/* Left Column */}
+          <div className="flex items-center justify-center md:block">
+            <div>
+              {/* Image with lime border strip */}
+              <div className="relative mb-4 md:mb-0">
+                <div className="absolute top-0 left-0 w-[4px] md:w-[6px] h-full bg-lime-400"></div>
+                <img
+                  src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+                  alt="Testimonial"
+                  className="ts-img w-[220px] h-[280px] md:w-[280px] md:h-[340px] object-cover"
+                />
+              </div>
+
+              {/* Name & Role */}
+              <div className="text-center md:text-left mt-2 md:mt-4">
+                <h3 className="ts-name text-xl md:text-2xl font-bold text-black">
+                  Carolyn Willms
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Global Accountability Officer
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="testimonial-text w-full md:w-1/2 px-4 sm:px-6 md:px-10 py-6 md:py-8 text-center md:text-left">
-          <h4 className="text-[#A15CFF] text-base md:text-lg font-semibold mb-3">
-            UNFYER
-          </h4>
-          <p className="text-gray-700 mb-4 md:mb-6 text-sm leading-relaxed">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt..."
-          </p>
-          <div className="flex flex-col sm:flex-row md:flex-row items-center sm:items-center gap-3 sm:gap-4 justify-center md:justify-start">
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="Adam Smith"
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            <div className="text-center sm:text-left">
-              <p className="text-[#1A1A1A] font-bold text-sm">Adam Smith</p>
-              <p className="text-gray-500 text-sm">Social Media Influencer</p>
-            </div>
+          {/* Right Column */}
+          <div className="relative mt-8 md:mt-0">
+            <span className="absolute -top-4 left-2 md:-top-6 md:left-0 text-[4rem] md:text-[6rem] text-lime-300/30 select-none">
+              “
+            </span>
+
+            <p className="ts-text text-gray-800 leading-relaxed text-base md:text-lg max-w-full md:max-w-[470px] relative z-10 px-2 md:px-4 text-center md:text-left">
+              Lorem ipsum dolor sit amet consectetur. Massa sed dapibus adipiscing felis at.
+              Integer at dictum ullamcorper magna nam eget. Elementum semper ultrices quam
+              elementum dignissim etiam velit molestie diam. Netus arcu varius lectus dignissim
+              mollis lorem pulvinar tortor arcu.
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-8 max-w-[200px] mx-auto w-full">
-        <button className="testimonial-arrow w-9 h-9 md:w-10 md:h-10 bg-white rounded-full shadow-md flex items-center justify-center">
-          <svg
-            className="w-5 h-5 text-[#A15CFF]"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M7.707 3.293a1 1 0 010 1.414L4.414 8H16a1 1 0 110 2H4.414l3.293 3.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z"
-              clipRule="evenodd"
+      {/* Bottom thumbnails + button */}
+      <div className="flex flex-col md:flex-row md:justify-end md:items-center gap-4 mt-10">
+        <div className="flex justify-center md:justify-end gap-2">
+          <div className="ts-thumb relative">
+            <img
+              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+              alt="Person 1"
+              className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] object-cover"
             />
-          </svg>
-        </button>
-
-        <div className="flex space-x-2">
-          <div className="testimonial-dot w-3 h-3 bg-white rounded-full"></div>
-          <div className="testimonial-dot w-3 h-3 bg-white/50 rounded-full"></div>
-          <div className="testimonial-dot w-3 h-3 bg-white/50 rounded-full"></div>
+            <div className="absolute inset-0 bg-lime-300/50 mix-blend-multiply"></div>
+          </div>
+          <div className="ts-thumb relative">
+            <img
+              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+              alt="Person 2"
+              className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] object-cover"
+            />
+            <div className="absolute inset-0 bg-lime-300/50 mix-blend-multiply"></div>
+          </div>
         </div>
 
-        <button className="testimonial-arrow w-9 h-9 md:w-10 md:h-10 bg-white rounded-full shadow-md flex items-center justify-center">
-          <svg
-            className="w-5 h-5 text-[#A15CFF]"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.293 16.707a1 1 0 010-1.414L15.586 12H4a1 1 0 110-2h11.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
+        <button className="ts-btn bg-lime-300 hover:bg-lime-400 transition text-black font-medium px-5 md:px-6 py-2 rounded-full self-center md:self-auto">
+          Next →
         </button>
       </div>
     </div>

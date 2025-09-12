@@ -1,0 +1,100 @@
+import React, { useEffect, useRef } from "react";
+import { BsStars } from "react-icons/bs";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const NotSure = () => {
+  const sectionRef = useRef(null);
+
+ useEffect(() => {
+  const ctx = gsap.context(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.from(".ns-box", {
+      y: 30,
+      opacity: 0,
+      duration: 0.55,
+      ease: "power2.out",   // smoother ease
+    })
+      .from(".ns-heading", {
+        y: 20,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.out",
+      })
+      .from(".ns-text", {
+        y: 15,
+        opacity: 0,
+        duration: 0.35,
+        ease: "power2.out",
+      })
+      .fromTo(
+        ".ns-btn",
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" },
+        "-=0.25"
+      )
+      .from(
+        ".ns-star",
+        {
+          opacity: 0,
+          scale: 0.85,
+          duration: 0.35,
+          stagger: 0.08,
+          ease: "back.out(1.7)",
+        },
+        "-=0.25"
+      );
+  }, sectionRef);
+
+  return () => ctx.revert();
+}, []);
+
+
+  return (
+    <div ref={sectionRef} className="bg-white w-full flex justify-center py-10 sm:py-12 px-4">
+      {/* Green Box */}
+      <div className="ns-box relative bg-[#E6FF33] rounded-2xl py-8 sm:py-10 px-5 sm:px-8 md:px-24 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl overflow-hidden">
+        {/* Left Content */}
+        <div className="text-center md:text-left max-w-2xl">
+          <h2 className="ns-heading text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-3 leading-snug">
+            Not sure if coaching is <br className="hidden sm:block" /> for you?
+          </h2>
+          <p className="ns-text text-gray-800 text-sm sm:text-base">
+            Take our free online self-assessment and discover where you stand today
+          </p>
+        </div>
+
+        {/* Right Content */}
+        <div className="mt-5 md:mt-0 flex flex-col items-center md:items-end">
+          <button className="ns-btn bg-green-900 hover:bg-green-800 transition text-white font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base">
+            Start Free Assessment
+          </button>
+        </div>
+
+        {/* Decorative Stars (Top Right) */}
+        <div className="absolute top-4 right-6 flex gap-2 text-green-900">
+          <BsStars className="ns-star text-xl" />
+          <BsStars className="ns-star text-sm" />
+        </div>
+
+        {/* Decorative Stars (Bottom Right) */}
+        <div className="absolute bottom-2 right-1/3 flex gap-2 text-green-900">
+          <BsStars className="ns-star text-lg" />
+          <BsStars className="ns-star text-sm" />
+          <BsStars className="ns-star text-xs" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NotSure;
