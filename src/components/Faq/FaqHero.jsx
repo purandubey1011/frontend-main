@@ -50,12 +50,12 @@ const FaqHero = () => {
        {/* Navbar */}
        <Navbar/>
       {/* === HERO HEADER === */}
-      <div className="bg-green-900 text-white py-36 px-6 md:px-12 text-center relative">
-        <div className="max-w-2xl mx-auto">
+      <div className="bg-[#0F2E15] text-white py-36 px-6 md:px-12 text-center relative">
+        <div className="max-w-3xl mx-auto">
           <span className="text-lime-300 text-sm font-medium tracking-wide">
             ✨ FAQ
           </span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-snug">
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-snug font-serif">
             Frequently Asked Questions
           </h1>
         </div>
@@ -70,7 +70,7 @@ const FaqHero = () => {
             onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="text-xl font-medium text-gray-900 font-serif">
                 {faq.question}
               </h3>
               {openId === faq.id ? (
@@ -80,7 +80,7 @@ const FaqHero = () => {
               )}
             </div>
             {openId === faq.id && faq.answer && (
-              <p className="mt-3 text-gray-600 text-sm leading-relaxed">
+              <p className="mt-3 text-gray-600 text-sm leading-relaxed font-serif">
                 {faq.answer}
               </p>
             )}

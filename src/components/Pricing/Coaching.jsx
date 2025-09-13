@@ -38,10 +38,10 @@ const Coaching = () => {
   return (
     <section className="bg-white py-20 px-4 md:px-12">
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-green-900 mb-12">Coaching</h2>
+      <h2 className="text-5xl font-bold text-green-900 mb-12 font-serif">Coaching</h2>
 
       {/* Cards */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-[#0F2E15]">
         {coachingData.map((item) => (
           <div
             key={item.id}
