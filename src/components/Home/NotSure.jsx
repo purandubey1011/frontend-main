@@ -81,13 +81,13 @@ const NotSure = () => {
         </div>
 
         {/* Decorative Stars (Top Right) */}
-        <div className="absolute top-4 right-6 flex gap-2 text-green-900">
-          <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/start.png?updatedAt=1757792039803" className="w-18" alt="" />
+        <div className="absolute top-0 md:top-4 right-6 flex gap-2 text-green-900">
+          <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/start.png?updatedAt=1757792039803" className="w-8 md:w-18" alt="" />
         </div>
 
         {/* Decorative Stars (Bottom Right) */}
-        <div className="absolute bottom-2 right-1/3 flex gap-2 text-green-900">
-          <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/start.png?updatedAt=1757792039803" className="w-18" alt="" />
+        <div className="absolute bottom-2 md:right-1/3 left-0 flex gap-2 text-green-900">
+          <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/start.png?updatedAt=1757792039803" className="w-12 md:w-18" alt="" />
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ const SolutionHero = () => {
           <img
             src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/leafe.png?updatedAt=1757570791498"
             alt="Leaf"
-            className="hidden md:block absolute -left-32 top-48 opacity-100 brightness-90 contrast-110 pointer-events-none -z-10"
+            className=" absolute md:-left-20 -left-10 top-26 md:top-48 opacity-100 brightness-90 contrast-110 pointer-events-none -z-10 h-48 md:h-80"
           />
 
           <h1 className="text-3xl md:text-6xl font-medium text-green-950 leading-tight mb-4 sm:mb-6">
@@ -46,11 +46,11 @@ const SolutionHero = () => {
         </div>
 
         {/* Right */}
-        <div className="hero-right md:w-1/2 flex justify-end mt-8 md:mt-0">
+        <div className="hero-right md:w-1/2  justify-end mt-8 md:mt-0 md:flex hidden">
   <img
     src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/solutionhero.jpg?updatedAt=1757570907767"
     alt="Coaching discussion"
-    className="rounded-xl w-[30vw] h-[70vh] object-cover shadow-lg"
+    className="rounded-xl w-[80vw] h-[50vh] md:w-[30vw] md:h-[70vh] object-cover shadow-lg"
   />
 </div>
 

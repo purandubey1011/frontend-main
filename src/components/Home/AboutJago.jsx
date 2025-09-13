@@ -49,7 +49,7 @@ const AboutJago = () => {
         <img
           src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/herosecondgirl.jpg?updatedAt=1757791267264"
           alt="About Jago"
-          className="rounded-lg w-full max-w-[30vw] h-[70vh] object-cover"
+          className="rounded-lg w-full max-w-[80vw] md:max-w-[30vw] md:h-[70vh] h-[55vh] object-cover"
         />
       </div>
 

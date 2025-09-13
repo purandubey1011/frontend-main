@@ -46,7 +46,7 @@ const NextChapter = () => {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-        <h2 className="nc-heading text-3xl md:text-6xl font-semibold text-white max-w-4xl mb-10 leading-[9vh] font-serif">
+        <h2 className="nc-heading text-3xl md:text-6xl font-semibold text-white max-w-4xl mb-10 md:leading-[9vh] leading-tight font-serif">
           Your next chapter begins <br /> with one conversation
         </h2>
         <button className="nc-btn bg-white text-gray-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
