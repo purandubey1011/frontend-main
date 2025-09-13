@@ -7,7 +7,7 @@ const WhyChoose = () => {
       <div className="max-w-6xl mx-auto text-center">
         {/* === Heading === */}
         <h2 className="text-3xl md:text-4xl font-semibold text-green-950 mb-4">
-          <span className="italic font-normal">Why Choose</span>{" "}
+          <span className="italic font-semibold">Why Choose</span>{" "}
           <span className="font-semibold">JaGo?</span>
         </h2>
         <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-14">

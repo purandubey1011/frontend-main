@@ -9,33 +9,33 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutJago = () => {
   const sectionRef = useRef(null);
 
- useEffect(() => {
-  const ctx = gsap.context(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 85%",
-        toggleActions: "play none none reverse",
-      },
-    });
+//  useEffect(() => {
+//   const ctx = gsap.context(() => {
+//     const tl = gsap.timeline({
+//       scrollTrigger: {
+//         trigger: sectionRef.current,
+//         start: "top 85%",
+//         toggleActions: "play none none reverse",
+//       },
+//     });
 
-    tl.from(".about-img", {
-      x: -50,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      immediateRender: false,
-    })
-      .fromTo(
-        ".about-heading, .about-text, .about-btn, .about-tag",
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.7, ease: "power2.out", stagger: 0.15 },
-        "-=0.6"
-      );
-  }, sectionRef);
+//     tl.from(".about-img", {
+//       x: -50,
+//       opacity: 0,
+//       duration: 1,
+//       ease: "power3.out",
+//       immediateRender: false,
+//     })
+//       .fromTo(
+//         ".about-heading, .about-text, .about-btn, .about-tag",
+//         { x: 40, opacity: 0 },
+//         { x: 0, opacity: 1, duration: 0.7, ease: "power2.out", stagger: 0.15 },
+//         "-=0.6"
+//       );
+//   }, sectionRef);
 
-  return () => ctx.revert();
-}, []);
+//   return () => ctx.revert();
+// }, []);
 
 
   return (
@@ -47,9 +47,9 @@ const AboutJago = () => {
       <div className="relative about-img">
         <div className="absolute -top-3 -left-3 w-full h-full bg-lime-300 rounded-lg -z-10"></div>
         <img
-          src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=1200"
+          src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/herosecondgirl.jpg?updatedAt=1757791267264"
           alt="About Jago"
-          className="rounded-lg w-full max-w-[520px] object-cover"
+          className="rounded-lg w-full max-w-[30vw] h-[70vh] object-cover"
         />
       </div>
 
@@ -89,10 +89,10 @@ const AboutJago = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="about-tag flex items-center gap-2 border border-lime-300 rounded-lg px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium text-gray-800 bg-white"
+              className="about-tag flex flex-col items-start gap-2 border border-lime-300 rounded-lg px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium text-gray-800 bg-white"
             >
-              <FaCheckCircle className="text-lime-400" />
-              {item}
+              <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/check.png?updatedAt=1757791598302" className="w-6" alt="" />
+              <p>{item}</p>
             </div>
           ))}
         </div>

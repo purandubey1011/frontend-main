@@ -4,17 +4,17 @@ import gsap from "gsap";
 const Clarity = () => {
   const boxRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".clarity-inner", {
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: "power2.out",
-      });
-    }, boxRef);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".clarity-inner", {
+  //       opacity: 0,
+  //       y: 30,
+  //       duration: 0.7,
+  //       ease: "power2.out",
+  //     });
+  //   }, boxRef);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section

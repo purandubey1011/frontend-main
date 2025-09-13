@@ -4,11 +4,11 @@ import { FiPhoneCall, FiMail, FiMapPin } from "react-icons/fi";
 
 const QuickContact = () => {
   return (
-    <section className="w-full bg-lime-300 text-green-950 py-16 px-6 md:px-12">
+    <section className="w-full bg-[#EAFE45] text-green-950 py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold mb-12">
-          Quick Contact Now
+         <span className="italic"> Quick Contact</span> <span className="font-bold">Now</span>
         </h2>
 
         {/* 3 columns */}

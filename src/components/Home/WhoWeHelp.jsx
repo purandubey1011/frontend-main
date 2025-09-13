@@ -8,43 +8,43 @@ gsap.registerPlugin(ScrollTrigger);
 const WhoWeHelp = () => {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-      });
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: "top 75%",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     });
 
-      tl.from(".who-heading", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      })
-        .fromTo(
-          ".who-btn",
-          { opacity: 0, scale: 0.8 },      // <-- explicit start
-          { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" },
-          "-=0.6"
-        )
-        .from(
-          ".who-item",
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out",
-          },
-          "-=0.5"
-        );
-    }, sectionRef);
+  //     tl.from(".who-heading", {
+  //       y: 40,
+  //       opacity: 0,
+  //       duration: 1,
+  //       ease: "power3.out",
+  //     })
+  //       .fromTo(
+  //         ".who-btn",
+  //         { opacity: 0, scale: 0.8 },      // <-- explicit start
+  //         { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" },
+  //         "-=0.6"
+  //       )
+  //       .from(
+  //         ".who-item",
+  //         {
+  //           y: 30,
+  //           opacity: 0,
+  //           duration: 0.6,
+  //           stagger: 0.15,
+  //           ease: "power2.out",
+  //         },
+  //         "-=0.5"
+  //       );
+  //   }, sectionRef);
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   const items = [
     "Certified Life Coach",
@@ -77,11 +77,11 @@ const WhoWeHelp = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 border-t border-white/30 pt-6 sm:pt-8">
           {items.map((item, i) => (
-            <div key={i} className="who-item flex items-center gap-2">
+            <div key={i} className="who-item flex flex-col items-start gap-2">
               <div className="bg-lime-400/20 p-1.5 sm:p-2 rounded-full">
                 <BsStars className="text-lime-300 text-base sm:text-lg" />
               </div>
-              <p className="text-white text-sm sm:text-base font-medium">
+              <p className="text-white text-sm sm:text-base max-w-[13vw] font-medium">
                 {item}
               </p>
             </div>

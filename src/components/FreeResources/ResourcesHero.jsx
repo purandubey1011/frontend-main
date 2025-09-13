@@ -6,32 +6,32 @@ import Navbar from "../Navbar";
 const Resources = () => {
   const root = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".res-headline", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-      gsap.from(".res-paragraph", {
-        opacity: 0,
-        y: 20,
-        delay: 0.2,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-      gsap.from(".res-buttons button", {
-        opacity: 0,
-        y: 15,
-        stagger: 0.15,
-        delay: 0.4,
-        duration: 0.6,
-        ease: "power2.out",
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".res-headline", {
+  //       opacity: 0,
+  //       y: 30,
+  //       duration: 0.8,
+  //       ease: "power2.out",
+  //     });
+  //     gsap.from(".res-paragraph", {
+  //       opacity: 0,
+  //       y: 20,
+  //       delay: 0.2,
+  //       duration: 0.8,
+  //       ease: "power2.out",
+  //     });
+  //     gsap.from(".res-buttons button", {
+  //       opacity: 0,
+  //       y: 15,
+  //       stagger: 0.15,
+  //       delay: 0.4,
+  //       duration: 0.6,
+  //       ease: "power2.out",
+  //     });
+  //   }, root);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <div ref={root} className="relative bg-white overflow-hidden">

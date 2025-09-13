@@ -5,34 +5,34 @@ import gsap from "gsap";
 const GlobalExperience = () => {
   const secRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".ge-heading", {
-        opacity: 0,
-        y: 25,
-        duration: 0.5,
-        ease: "power2.out",
-      });
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".ge-heading", {
+  //       opacity: 0,
+  //       y: 25,
+  //       duration: 0.5,
+  //       ease: "power2.out",
+  //     });
 
-      gsap.from(".ge-map", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.6,
-        delay: 0.2,
-      });
+  //     gsap.from(".ge-map", {
+  //       opacity: 0,
+  //       scale: 0.95,
+  //       duration: 0.6,
+  //       delay: 0.2,
+  //     });
 
-      gsap.from(".ge-popup", {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        stagger: 0.15,
-        delay: 0.3,
-        ease: "power2.out",
-      });
-    }, secRef);
+  //     gsap.from(".ge-popup", {
+  //       opacity: 0,
+  //       y: 20,
+  //       duration: 0.5,
+  //       stagger: 0.15,
+  //       delay: 0.3,
+  //       ease: "power2.out",
+  //     });
+  //   }, secRef);
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section
@@ -53,8 +53,8 @@ const GlobalExperience = () => {
         />
 
         {/* Popup 1 */}
-        <div className="ge-popup absolute top-[1%] left-[8%] md:top-[20%] md:left-[20%] bg-lime-200 text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-64">
-          <div className="flex items-start space-x-2">
+        <div className="ge-popup absolute top-[-6%] left-[8%] md:top-[5%] md:left-[10%] bg-[#EAFE45] text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-80">
+          <div className="flex flex-col items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
               <h3 className="font-semibold text-green-900 text-xs sm:text-base">
@@ -69,8 +69,8 @@ const GlobalExperience = () => {
         </div>
 
         {/* Popup 2 */}
-        <div className="ge-popup absolute top-[32%] right-[5%] md:right-[20%] bg-lime-200 text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-64">
-          <div className="flex items-start space-x-2">
+        <div className="ge-popup absolute top-[32%] md:top-[20%] right-[5%] md:right-[5%] bg-[#EAFE45] text-left rounded-lg shadow-lg p-3 sm:p-4 w-56 sm:w-80">
+          <div className="flex flex-col items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
               <h3 className="font-semibold text-green-900 text-xs sm:text-base">
@@ -85,8 +85,8 @@ const GlobalExperience = () => {
         </div>
 
         {/* Popup 3 */}
-        <div className="ge-popup absolute -bottom-[5%] left-[20%] md:bottom-[15%] md:left-[35%] bg-lime-200 text-left rounded-lg shadow-lg p-3 sm:p-4 w-60 sm:w-72">
-          <div className="flex items-start space-x-2">
+        <div className="ge-popup absolute -bottom-[5%] left-[20%] md:bottom-[15%] md:left-[35%] bg-[#EAFE45] text-left rounded-lg shadow-lg p-3 sm:p-4 w-60 sm:w-80">
+          <div className="flex flex-col items-start space-x-2">
             <PiSparkleFill className="text-green-900 mt-1" />
             <div>
               <h3 className="font-semibold text-green-900 text-xs sm:text-base">

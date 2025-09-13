@@ -13,7 +13,7 @@ const ContactHero = () => {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-40 pb-16">
         {/* Heading */}
-        <h1 className="text-center text-3xl md:text-4xl font-semibold leading-snug mb-14">
+        <h1 className="text-center text-3xl md:text-4xl font-semibold leading-snug mb-14 font-serif">
           Sometimes, the hardest step is reaching out.
           <br />
           We promise to keep your words safe.
@@ -54,7 +54,7 @@ const ContactHero = () => {
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-lime-400 text-green-950 font-semibold py-3 rounded-full hover:bg-lime-500 transition"
+              className="w-full bg-[#EAFE45] text-green-950 font-semibold py-3 rounded-full hover:bg-[#b6c811] transition"
             >
               Send Message
             </button>

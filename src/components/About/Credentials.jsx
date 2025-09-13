@@ -24,27 +24,27 @@ const Credentials = () => {
     },
   ];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".cred-heading", {
-        opacity: 0,
-        y: -20,
-        duration: 0.5,
-        ease: "power2.out",
-      });
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".cred-heading", {
+  //       opacity: 0,
+  //       y: -20,
+  //       duration: 0.5,
+  //       ease: "power2.out",
+  //     });
 
-      gsap.from(".cred-card", {
-        opacity: 0,
-        y: 30,
-        duration: 0.5,
-        stagger: 0.15,
-        delay: 0.2,
-        ease: "power2.out",
-      });
-    }, credsRef);
+  //     gsap.from(".cred-card", {
+  //       opacity: 0,
+  //       y: 30,
+  //       duration: 0.5,
+  //       stagger: 0.15,
+  //       delay: 0.2,
+  //       ease: "power2.out",
+  //     });
+  //   }, credsRef);
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section
@@ -53,11 +53,11 @@ const Credentials = () => {
     >
       {/* Sparkle */}
       <div className="absolute top-6 right-8 text-lime-300 text-3xl">
-        <PiSparkleFill />
+        <img src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/whitestar.png?updatedAt=1757795085083" alt="" />
       </div>
 
       {/* Heading */}
-      <h2 className="cred-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-10">
+      <h2 className="cred-heading text-2xl sm:text-3xl md:text-4xl text-center mb-10 font-serif">
         Credentials
       </h2>
 

@@ -7,50 +7,50 @@ gsap.registerPlugin(ScrollTrigger);
 const Testimonials = () => {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        defaults: { ease: "linear" }, // smooth linear
-      });
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: sectionRef.current,
+//           start: "top 80%",
+//         },
+//         defaults: { ease: "linear" }, // smooth linear
+//       });
 
-      tl.from(".ts-heading", {
-        opacity: 0,
-        y: -20,
-        duration: 0.5,
-      })
-        .from(
-          ".ts-img",
-          {
-            opacity: 0,
-            y: 30,
-            duration: 0.5,
-          },
-          "-=0.2"
-        )
-        .from(
-          ".ts-name",
-          { opacity: 0, y: 15, duration: 0.4 },
-          "-=0.3"
-        )
-        .from(
-          ".ts-text",
-          { opacity: 0, y: 15, duration: 0.4 },
-          "-=0.3"
-        )
-        .fromTo(
-  [".ts-thumb", ".ts-btn"],
-  { autoAlpha: 0, y: 15 },
-  { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05 },
-  "-=0.2"
-);
-    }, sectionRef);
+//       tl.from(".ts-heading", {
+//         opacity: 0,
+//         y: -20,
+//         duration: 0.5,
+//       })
+//         .from(
+//           ".ts-img",
+//           {
+//             opacity: 0,
+//             y: 30,
+//             duration: 0.5,
+//           },
+//           "-=0.2"
+//         )
+//         .from(
+//           ".ts-name",
+//           { opacity: 0, y: 15, duration: 0.4 },
+//           "-=0.3"
+//         )
+//         .from(
+//           ".ts-text",
+//           { opacity: 0, y: 15, duration: 0.4 },
+//           "-=0.3"
+//         )
+//         .fromTo(
+//   [".ts-thumb", ".ts-btn"],
+//   { autoAlpha: 0, y: 15 },
+//   { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05 },
+//   "-=0.2"
+// );
+//     }, sectionRef);
 
-    return () => ctx.revert();
-  }, []);
+//     return () => ctx.revert();
+//   }, []);
 
   return (
     <div

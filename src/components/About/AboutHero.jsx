@@ -6,24 +6,24 @@ import Navbar from "../Navbar";
 const AboutHero = () => {
   const heroRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".ah-top", {
-        opacity: 0,
-        y: -20,
-        duration: 0.45,
-        ease: "power2.out",
-      });
-      gsap.from(".ah-heading", {
-        opacity: 0,
-        y: 20,
-        duration: 0.55,
-        ease: "power2.out",
-        delay: 0.15,
-      });
-    }, heroRef);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".ah-top", {
+  //       opacity: 0,
+  //       y: -20,
+  //       duration: 0.45,
+  //       ease: "power2.out",
+  //     });
+  //     gsap.from(".ah-heading", {
+  //       opacity: 0,
+  //       y: 20,
+  //       duration: 0.55,
+  //       ease: "power2.out",
+  //       delay: 0.15,
+  //     });
+  //   }, heroRef);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section
@@ -43,7 +43,7 @@ const AboutHero = () => {
         <div className="ah-top flex items-center justify-between w-full mb-5 md:mb-8">
           <div className="flex items-center gap-2">
             <span className="text-yellow-300 text-base md:text-lg">✨</span>
-            <span className="text-white/80 text-xs sm:text-sm font-medium">
+            <span className="text-white/80 text-xs sm:text-lg font-medium">
               About JaGo
             </span>
           </div>
@@ -53,14 +53,14 @@ const AboutHero = () => {
             <img
               src="https://ik.imagekit.io/b9tt0xvd7/Falverra/falverra%20redesign/jogo/home/Line-Trophy-Non-Filled--Streamline-Variable-Scribbles.png?updatedAt=1757446368292"
               alt="Trophy Outline"
-              className="w-20 h-20 md:w-24 md:h-24 opacity-80"
+              className="w-20 md:w-36 opacity-80"
             />
           </div>
         </div>
 
         {/* Main heading */}
-        <div className="flex justify-center md:justify-start">
-          <h1 className="ah-heading text-4xl  md:text-6xl font-bold leading-snug text-white max-w-lg sm:max-w-2xl md:max-w-5xl text-left">
+        <div className="flex justify-center md:justify-end">
+          <h1 className="ah-heading text-4xl  md:text-6xl font-bold leading-tight text-white max-w-lg md:max-w-[75vw] text-left">
             JaGo means to awaken.{" "}
             <span className="text-gray-400 font-semibold">
               To rise above confusion, to step into purpose, to live with
