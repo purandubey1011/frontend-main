@@ -40,9 +40,9 @@ const SolutionHero = () => {
             Not therapy. Not consulting. Just clear, confidential guidance.
           </p>
 
-          <button className="bg-lime-400 text-green-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-lime-500 transition text-sm sm:text-base">
+          <Link to='/contact' className="bg-lime-400 text-green-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-lime-500 transition text-sm sm:text-base">
             Book a Free 15-Minute Call
-          </button>
+          </Link>
         </div>
 
         {/* Right */}
@@ -71,9 +71,9 @@ const SolutionHero = () => {
             <p className="text-gray-300 text-sm sm:text-base mb-6 sm:mb-8">
               60-minute online sessions.
             </p>
-            <button className="bg-lime-400 text-green-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-lime-500 transition text-sm sm:text-base">
-              Book a Session
-            </button>
+            <Link to='/contact' className="bg-lime-400 text-green-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-lime-500 transition text-sm sm:text-base">
+            Book a Free 15-Minute Call
+          </Link>
           </div>
         </div>
       </div>

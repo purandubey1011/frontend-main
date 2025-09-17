@@ -5,6 +5,7 @@ import WhoWeHelp from './WhoWeHelp.jsx'
 import NotSure from './NotSure.jsx'
 import NextChapter from './NextChapter.jsx'
 import Testimonials from './Testimonials.jsx'
+import Footer from '../Footer.jsx'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <NotSure />
       <NextChapter />
       <Testimonials/>
+      <Footer />
     </div>
   )
 }

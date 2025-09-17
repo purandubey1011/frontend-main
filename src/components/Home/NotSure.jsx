@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { BsStars } from "react-icons/bs";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,9 +76,11 @@ const NotSure = () => {
 
         {/* Right Content */}
         <div className="mt-5 md:mt-0 flex flex-col items-center md:items-end">
+          <Link to="/contact">
           <button className="ns-btn bg-[#0F2E15] hover:bg-green-800 transition text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold">
             Start Free Assessment
           </button>
+          </Link>
         </div>
 
         {/* Decorative Stars (Top Right) */}

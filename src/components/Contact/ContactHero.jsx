@@ -1,14 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
 import Navbar from "../Navbar";
+import api from "../../utils/axios"; // ✅ adjust the path to your axios instance
 
 const ContactHero = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  console.log(formData)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const res = await api.post("/api/v1/form/contact-us", formData); // endpoint in your backend
+      setSuccess(res.data.message);
+      setFormData({ name: "", email: "", phoneNumber: "", subject: "", message: "" });
+    } catch (err) {
+      setError(err.response?.data?.error || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="relative w-full min-h-screen bg-green-950 text-white">
-     {/* Navbar */}
-      <Navbar/>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-40 pb-16">
@@ -22,42 +56,69 @@ const ContactHero = () => {
         {/* Grid: Left form + Right info */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Form */}
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name"
                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 focus:outline-none"
+                required
               />
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email"
                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 focus:outline-none"
+                required
               />
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <input
                 type="tel"
-                placeholder="Phone Number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                placeholder="Phone"
                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 focus:outline-none"
+                required
               />
               <input
                 type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
                 placeholder="Subject"
                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 focus:outline-none"
+                required
               />
             </div>
+
             <textarea
               rows="5"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Message"
               className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 focus:outline-none"
+              required
             ></textarea>
+
             <button
               type="submit"
-              className="w-full bg-[#EAFE45] text-green-950 font-semibold py-3 rounded-full hover:bg-[#b6c811] transition"
+              disabled={loading}
+              className="w-full bg-[#EAFE45] text-green-950 font-semibold py-3 rounded-full hover:bg-[#b6c811] transition disabled:opacity-50"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {success && <p className="text-green-400 mt-3">{success}</p>}
+            {error && <p className="text-red-400 mt-3">{error}</p>}
           </form>
 
           {/* Right: Contact Info */}

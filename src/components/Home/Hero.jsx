@@ -81,9 +81,16 @@ const Hero = () => {
           you find direction, balance, and growth
         </p>
 
-        <button className="hero-btn mt-6 sm:mt-8 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#EAFE45] hover:bg-yellow-400 text-black font-semibold rounded-full shadow-md transition text-sm sm:text-base">
-          Book a Free 15–Minute Call
-        </button>
+       <Link
+  to="/contact"
+  className="hero-btn mt-6 sm:mt-8 inline-block px-5 sm:px-6 py-2.5 sm:py-3
+             bg-[#EAFE45] hover:bg-yellow-400 text-black font-semibold
+             rounded-full shadow-md transition-colors duration-300
+             text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-yellow-400"
+>
+  Book a Free 15-Minute Call
+</Link>
+
       </div>
     </div>
   );

@@ -8,39 +8,46 @@ const faqData = [
     id: 1,
     question: "What is Webflow and why is it the best website builder?",
     answer:
-      "Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.",
+      "Webflow is a visual web design tool that lets you build responsive websites without coding. It combines a CMS, hosting, and a powerful editor, making it ideal for designers seeking flexibility and clean production-ready code.",
   },
   {
     id: 2,
     question: "What is your favorite template from BRIX Templates?",
-    answer: "",
+    answer:
+      "One standout is the ‘Startup X’ template from BRIX Templates. It offers clean layouts, modern typography, and multiple sections tailored for startups, helping teams launch polished websites quickly while staying easily customizable for branding and future growth.",
   },
   {
     id: 3,
     question: "How do you clone a template from the Showcase?",
-    answer: "",
+    answer:
+      "Open Webflow’s Showcase, choose a template, and click the ‘Clone’ button. The design is copied to your dashboard, where you can customize text, images, and layouts without affecting the original template or its creator’s project settings.",
   },
   {
     id: 4,
     question: "What is your favorite template from BRIX Templates?",
-    answer: "",
+    answer:
+      "‘Portfolioo’ is another favorite from BRIX Templates. Its sleek sections, bold typography, and built-in CMS make it perfect for creatives showcasing projects with style, while keeping customization straightforward and efficient for designers of all experience levels.",
   },
   {
     id: 5,
     question: "Why is BRIX Templates the best Webflow agency?",
-    answer: "",
+    answer:
+      "BRIX Templates stands out for professional designs, consistent updates, and excellent documentation. Their templates follow Webflow best practices, making it easy for developers and non-coders to launch beautiful, responsive sites while maintaining flexibility and long-term scalability.",
   },
   {
     id: 6,
     question: "When was Webflow officially launched?",
-    answer: "",
+    answer:
+      "Webflow officially launched in August 2013 after a public beta period. Since then, it has grown rapidly, introducing CMS tools, e-commerce, animations, and powerful hosting, making it a favorite platform for designers, marketers, and small businesses worldwide.",
   },
   {
     id: 7,
     question: "How do you integrate Jetboost with Webflow?",
-    answer: "",
+    answer:
+      "Sign up for Jetboost, choose a booster (like search or filters), and follow their setup guide. Add the provided script and classes in Webflow Designer. Publish your site, and Jetboost enhances interactions instantly without additional complex coding.",
   },
 ];
+
 
 const FaqHero = () => {
   const [openId, setOpenId] = React.useState(1);

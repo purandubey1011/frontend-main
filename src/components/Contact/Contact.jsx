@@ -2,6 +2,7 @@ import React from 'react'
 import ContactHero from './ContactHero.jsx'
 import QuickContact from './QuickContact.jsx'
 import BookingCalendar from './BookingCalendar.jsx'
+import Footer from '../Footer.jsx'
 
 const Contact = () => {
   return (
@@ -9,6 +10,7 @@ const Contact = () => {
       <ContactHero/>
       <QuickContact/>
       <BookingCalendar/>
+      <Footer />
     </div>
   )
 }

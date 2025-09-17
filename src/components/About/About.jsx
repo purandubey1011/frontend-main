@@ -5,6 +5,7 @@ import GlobalExperience from './GlobalExperience.jsx'
 import Credentials from './Credentials.jsx'
 import OurMission from './Ourmisson.jsx'
 import Testimonials from '../Home/Testimonials.jsx'
+import Footer from '../Footer.jsx'
 
 const About = () => {
   return (
@@ -15,6 +16,7 @@ const About = () => {
       <Credentials/>
       <OurMission/>
       <Testimonials/>
+      <Footer />
     </div>
   )
 }

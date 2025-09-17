@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import link 
+import {Link } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,9 +51,9 @@ const NextChapter = () => {
         <h2 className="nc-heading text-3xl md:text-6xl font-semibold text-white max-w-4xl mb-10 md:leading-[9vh] leading-tight font-serif">
           Your next chapter begins <br /> with one conversation
         </h2>
-        <button className="nc-btn bg-white text-gray-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
-          Schedule Your Session
-        </button>
+        <Link to='/contact' className="nc-btn bg-white text-gray-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
+          Book a Free 20-minute Discovery Call
+        </Link>
       </div>
     </div>
   );

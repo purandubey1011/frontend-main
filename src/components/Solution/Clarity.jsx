@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const Clarity = () => {
   const boxRef = useRef(null);
@@ -43,9 +44,9 @@ const Clarity = () => {
           </h2>
 
           {/* Button */}
-          <button className="bg-lime-400 text-green-950 font-medium px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-lime-500 transition text-sm sm:text-base">
+          <Link to='/contact' className="bg-lime-400 text-green-950 font-medium px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-lime-500 transition text-sm sm:text-base">
             Book Your First Session
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React from "react";
 import { BsStars } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const WhoWeHelp = () => {
   const items = [
@@ -30,10 +31,11 @@ const WhoWeHelp = () => {
             Who We
             <br className="hidden sm:block" /> Help
           </h2>
-
+          <Link to="/about">
           <button className="bg-lime-300 hover:bg-lime-400 transition text-gray-900 font-semibold px-6 py-3 rounded-full shadow text-sm sm:text-base w-fit">
             Explore Now
           </button>
+          </Link>
         </div>
 
         {/* items */}

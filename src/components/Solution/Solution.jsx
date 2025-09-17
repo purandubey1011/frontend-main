@@ -4,6 +4,7 @@ import WellBeing from './WellBeing.jsx'
 import WhyChoose from './WhyChoose.jsx'
 import Clarity from './Clarity.jsx'
 import Testimonials from '../Home/Testimonials.jsx'
+import Footer from '../Footer.jsx'
 
 const Solution = () => {
   return (
@@ -13,6 +14,7 @@ const Solution = () => {
       <WhyChoose/>
       <Clarity/>
       <Testimonials/>
+      <Footer />
     </div>
   )
 }
