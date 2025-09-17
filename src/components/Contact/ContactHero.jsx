@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
 import Navbar from "../Navbar";
-import api from "../../utils/axios"; // ✅ adjust the path to your axios instance
+import api from "../../utils/Axios"; // ✅ adjust the path to your axios instance
 
 const ContactHero = () => {
   const [formData, setFormData] = useState({
