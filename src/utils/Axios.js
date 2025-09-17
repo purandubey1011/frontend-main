@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: "https://jago-backend.onrender.com/",
-    withCredentials: true,
+    // baseURL: "http://localhost:3000/",
     headers: {
         "Content-Type": "application/json",
     },
